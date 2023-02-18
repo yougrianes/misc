@@ -37,12 +37,3 @@ def try_and_catch_exception(timeout=None):
         return wraps(func)(_function_wrapper)
 
     return _function_decorator
-
-if __name__ == "__main__":
-    import time
-
-    @try_and_catch_exception(20)
-    def workwork():
-        print("workwork!")
-        time.sleep(5)
-    workwork()
