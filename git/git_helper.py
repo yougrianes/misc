@@ -13,7 +13,7 @@ parser.add_argument('--push', action="store_true")
 args = parser.parse_args()
 
 
-@retry(BaseException, delay=5, tries=10)
+@retry(BaseException, delay=5, tries=100)
 def git_pull():
     # timeout 15secs or raise FunctionTimedOut exception
     @func_set_timeout(15)
@@ -27,7 +27,7 @@ def git_pull():
         raise FunctionTimedOut
 
 
-@retry(BaseException, delay=5, tries=10)
+@retry(BaseException, delay=5, tries=100)
 def git_push():
     # timeout 15secs or raise FunctionTimedOut exception
     @func_set_timeout(15)
